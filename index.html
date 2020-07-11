@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>STAR WARS <span class="badge badge-secondary">API</span></h1>
+      <label>Choose The List </label>
+      <select id="listOf" onchange="turnOn()">
+        <option selected disabled>....</option>
+        <option value="people">People</option>
+        <option value="planets">Planets</option>
+        <option value="films">Films</option>
+        <option value="starships">Starships</option>
+        <option value="vehicles">Vehicles</option>
+        <option value="species">Species</option>
+      </select>
+      <!------------------------------------------------ Planets ------------------------------------------------>
+      <div id="planets" class="off">
+        <button onclick="sortPlanetaNombre()" class="btn btn-info">
+          Por Nombre
+        </button>
+        <button onclick="sortPlanetaPoblacion()" class="btn btn-danger">
+          Por Pobalcion
+        </button>
+      </div>
+      <div id="people" class="off">People</div>
+      <div id="films" class="off">Films</div>
+      <div id="vehicles" class="off">starships</div>
+      <div id="species" class="off">species</div>
+      <div id="starships" class="off">starships</div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
