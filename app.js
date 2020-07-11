@@ -79,3 +79,172 @@ function sortPlanetaPoblacion() {
     divIdPlanetas.appendChild(newUl);
   }
 }
+
+//////////////////////////////////////////////////People//////////////////////////////////////////////////
+function sortPeopleNombre() {
+  document.getElementById("sort-gender").setAttribute("class", "off");
+
+  if (document.getElementById("people-order-name")) {
+    return;
+  }
+
+  if (document.getElementById("people-order-height")) {
+    let container = document.getElementById("people-order-height");
+    let delDiv = container.parentNode;
+    delDiv.removeChild(container);
+  }
+  if (document.getElementById("people-order-gender")) {
+    let container = document.getElementById("people-order-gender");
+    let delDiv = container.parentNode;
+    delDiv.removeChild(container);
+  }
+  obj.sort(sortPorNombre);
+  let divIdPeople = document.getElementById("people");
+  let newUl = document.createElement("ul");
+  newUl.setAttribute("id", "people-order-name");
+
+  for (values of obj) {
+    let items = values.name;
+    let li = document.createElement("li");
+    li.appendChild(document.createTextNode(items));
+    newUl.appendChild(li);
+    divIdPeople.appendChild(newUl);
+  }
+}
+
+function sortPeopleAltura() {
+  document.getElementById("sort-gender").setAttribute("class", "off");
+  if (document.getElementById("people-order-height")) {
+    return;
+  }
+
+  if (document.getElementById("people-order-name")) {
+    let container = document.getElementById("people-order-name");
+    let delDiv = container.parentNode;
+    delDiv.removeChild(container);
+  }
+  if (document.getElementById("people-order-gender")) {
+    let container = document.getElementById("people-order-gender");
+    let delDiv = container.parentNode;
+    delDiv.removeChild(container);
+  }
+  obj.sort(function (a, b) {
+    return a.height - b.height;
+  });
+  let divIdPeople = document.getElementById("people");
+  let newUl = document.createElement("ul");
+  newUl.setAttribute("id", "people-order-height");
+
+  for (values of obj) {
+    let items = values.name + " ---->" + values.height + " cm";
+    let li = document.createElement("li");
+    li.appendChild(document.createTextNode(items));
+    newUl.appendChild(li);
+    divIdPeople.appendChild(newUl);
+  }
+}
+function sortPeopleGenero() {
+  document.getElementById("sort-gender").setAttribute("class", "on");
+  if (document.getElementById("people-order-gender")) {
+    return;
+  }
+
+  if (document.getElementById("people-order-name")) {
+    let container = document.getElementById("people-order-name");
+    let delDiv = container.parentNode;
+    delDiv.removeChild(container);
+  }
+  if (document.getElementById("people-order-height")) {
+    let container = document.getElementById("people-order-height");
+    let delDiv = container.parentNode;
+    delDiv.removeChild(container);
+  }
+}
+
+function peopleGenderOption(val) {
+  switch (val) {
+    case "male":
+      if (document.getElementById("male")) {
+        return;
+      }
+
+      if (document.getElementById("female")) {
+        let container = document.getElementById("female");
+        let delDiv = container.parentNode;
+        delDiv.removeChild(container);
+      }
+      if (document.getElementById("n/a")) {
+        let container = document.getElementById("n/a");
+        let delDiv = container.parentNode;
+        delDiv.removeChild(container);
+      }
+      let filteredMale = obj.filter((el) => el.gender == "male");
+      let divIdMale = document.getElementById("sort-gender");
+      let newUlMale = document.createElement("ul");
+      newUlMale.setAttribute("id", "male");
+
+      for (values of filteredMale) {
+        let items = values.name + " ---->" + values.gender;
+        let li = document.createElement("li");
+        li.appendChild(document.createTextNode(items));
+        newUlMale.appendChild(li);
+        divIdMale.appendChild(newUlMale);
+      }
+      break;
+    case "female":
+      if (document.getElementById("female")) {
+        return;
+      }
+
+      if (document.getElementById("male")) {
+        let container = document.getElementById("male");
+        let delDiv = container.parentNode;
+        delDiv.removeChild(container);
+      }
+      if (document.getElementById("n/a")) {
+        let container = document.getElementById("n/a");
+        let delDiv = container.parentNode;
+        delDiv.removeChild(container);
+      }
+      let filteredFemale = obj.filter((el) => el.gender == "female");
+      let divIdFemale = document.getElementById("sort-gender");
+      let newUlFemale = document.createElement("ul");
+      newUlFemale.setAttribute("id", "male");
+
+      for (values of filteredFemale) {
+        let items = values.name + " ---->" + values.gender;
+        let li = document.createElement("li");
+        li.appendChild(document.createTextNode(items));
+        newUlFemale.appendChild(li);
+        divIdFemale.appendChild(newUlFemale);
+      }
+      break;
+    case "n/a":
+      if (document.getElementById("n/a")) {
+        return;
+      }
+
+      if (document.getElementById("male")) {
+        let container = document.getElementById("male");
+        let delDiv = container.parentNode;
+        delDiv.removeChild(container);
+      }
+      if (document.getElementById("female")) {
+        let container = document.getElementById("female");
+        let delDiv = container.parentNode;
+        delDiv.removeChild(container);
+      }
+      let filteredNA = obj.filter((el) => el.gender == "n/a");
+      let divIdNA = document.getElementById("sort-gender");
+      let newUlNA = document.createElement("ul");
+      newUlNA.setAttribute("id", "male");
+
+      for (values of filteredNA) {
+        let items = values.name + " ---->" + values.gender;
+        let li = document.createElement("li");
+        li.appendChild(document.createTextNode(items));
+        newUlNA.appendChild(li);
+        divIdNA.appendChild(newUlNA);
+      }
+  }
+}

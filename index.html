@@ -34,7 +34,23 @@
           Por Pobalcion
         </button>
       </div>
-      <div id="people" class="off">People</div>
+      <div id="people" class="off">
+        <h1>People</h1>
+        <button onclick="sortPeopleNombre()" class="btn btn-warning">
+          Por Nombre
+        </button>
+        <button onclick="sortPeopleAltura()" class="btn btn-dark">
+          Por Altura
+        </button>
+        <button onclick="sortPeopleGenero()" class="btn btn-info">
+          Por Genero
+        </button>
+        <div id="sort-gender" class="off">
+          <button onclick="peopleGenderOption('male')">Male</button>
+          <button onclick="peopleGenderOption('female')">Female</button>
+          <button onclick="peopleGenderOption('n/a')">N/A</button>
+        </div>
+      </div>
       <div id="films" class="off">Films</div>
       <div id="vehicles" class="off">starships</div>
       <div id="species" class="off">species</div>
