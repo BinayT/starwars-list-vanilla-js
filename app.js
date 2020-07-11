@@ -403,3 +403,58 @@ function sortFilmsDirector() {
     divIdFilms.appendChild(newUl);
   }
 }
+//////////////////////////////////////////////////Vehicles//////////////////////////////////////////////////
+
+function sortVehiclesName() {
+  if (document.getElementById("vehicles-order-name")) {
+    return;
+  }
+
+  if (document.getElementById("vehicles-order-creation")) {
+    let container = document.getElementById("vehicles-order-creation");
+    let delDiv = container.parentNode;
+    delDiv.removeChild(container);
+  }
+
+  obj.sort(sortPorNombre);
+
+  let divIdFilms = document.getElementById("vehicles");
+  let newUl = document.createElement("ul");
+  newUl.setAttribute("id", "vehicles-order-name");
+
+  for (values of obj) {
+    let items = values.name;
+    let li = document.createElement("li");
+    li.appendChild(document.createTextNode(items));
+    newUl.appendChild(li);
+    divIdFilms.appendChild(newUl);
+  }
+}
+
+function sortVehiclesCreation() {
+  if (document.getElementById("vehicles-order-creation")) {
+    return;
+  }
+
+  if (document.getElementById("vehicles-order-name")) {
+    let container = document.getElementById("vehicles-order-name");
+    let delDiv = container.parentNode;
+    delDiv.removeChild(container);
+  }
+
+  obj.sort(function (a, b) {
+    return b.created - a.created;
+  });
+
+  let divIdFilms = document.getElementById("vehicles");
+  let newUl = document.createElement("ul");
+  newUl.setAttribute("id", "vehicles-order-creation");
+
+  for (values of obj) {
+    let items = values.name + " ---->" + values.created;
+    let li = document.createElement("li");
+    li.appendChild(document.createTextNode(items));
+    newUl.appendChild(li);
+    divIdFilms.appendChild(newUl);
+  }
+}
