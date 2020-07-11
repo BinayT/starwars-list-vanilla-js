@@ -209,7 +209,7 @@ function peopleGenderOption(val) {
       let filteredFemale = obj.filter((el) => el.gender == "female");
       let divIdFemale = document.getElementById("sort-gender");
       let newUlFemale = document.createElement("ul");
-      newUlFemale.setAttribute("id", "male");
+      newUlFemale.setAttribute("id", "female");
 
       for (values of filteredFemale) {
         let items = values.name + " ---->" + values.gender;
@@ -237,7 +237,7 @@ function peopleGenderOption(val) {
       let filteredNA = obj.filter((el) => el.gender == "n/a");
       let divIdNA = document.getElementById("sort-gender");
       let newUlNA = document.createElement("ul");
-      newUlNA.setAttribute("id", "male");
+      newUlNA.setAttribute("id", "n/a");
 
       for (values of filteredNA) {
         let items = values.name + " ---->" + values.gender;
