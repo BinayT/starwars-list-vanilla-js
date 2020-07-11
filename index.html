@@ -52,7 +52,18 @@
           <button onclick="peopleGenderOption('n/a')">N/A</button>
         </div>
       </div>
-      <div id="films" class="off"></div>
+      <div id="films" class="off">
+        <button onclick="sortFilmsTitle()" class="btn btn-success">
+          By Title
+        </button>
+        <button onclick="sortFilmsDate()" class="btn btn-info">By Date</button>
+        <button onclick="sortFilmsEpisode()" class="btn btn-primary">
+          By Episode
+        </button>
+        <button onclick="sortFilmsDirector()" class="btn btn-secondary">
+          By Director
+        </button>
+      </div>
       <div id="vehicles" class="off">starships</div>
       <div id="species" class="off">species</div>
       <div id="starships" class="off">starships</div>

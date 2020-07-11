@@ -19,7 +19,6 @@ function turnOn() {
 }
 
 function sortPorNombre(a, b) {
-  console.log(a);
   if (a.name == b.name) return 0;
   if (a.name > b.name) return 1;
   else return -1;
@@ -246,5 +245,161 @@ function peopleGenderOption(val) {
         newUlNA.appendChild(li);
         divIdNA.appendChild(newUlNA);
       }
+  }
+}
+
+//////////////////////////////////////////////////Films//////////////////////////////////////////////////
+function sortFilmsTitle() {
+  if (document.getElementById("films-order-title")) {
+    return;
+  }
+
+  if (document.getElementById("films-order-date")) {
+    let container = document.getElementById("films-order-date");
+    let delDiv = container.parentNode;
+    delDiv.removeChild(container);
+  }
+  if (document.getElementById("films-order-episode_id")) {
+    let container = document.getElementById("films-order-episode_id");
+    let delDiv = container.parentNode;
+    delDiv.removeChild(container);
+  }
+  if (document.getElementById("films-order-director")) {
+    let container = document.getElementById("films-order-director");
+    let delDiv = container.parentNode;
+    delDiv.removeChild(container);
+  }
+
+  obj.sort(function (a, b) {
+    if (a.title == b.title) return 0;
+    if (a.title > b.title) return 1;
+    else return -1;
+  });
+
+  let divIdFilms = document.getElementById("films");
+  let newUl = document.createElement("ul");
+  newUl.setAttribute("id", "films-order-title");
+
+  for (values of obj) {
+    let items = values.title;
+    let li = document.createElement("li");
+    li.appendChild(document.createTextNode(items));
+    newUl.appendChild(li);
+    divIdFilms.appendChild(newUl);
+  }
+}
+function sortFilmsDate() {
+  if (document.getElementById("films-order-date")) {
+    return;
+  }
+
+  if (document.getElementById("films-order-episode_id")) {
+    let container = document.getElementById("films-order-episode_id");
+    let delDiv = container.parentNode;
+    delDiv.removeChild(container);
+  }
+  if (document.getElementById("films-order-director")) {
+    let container = document.getElementById("films-order-director");
+    let delDiv = container.parentNode;
+    delDiv.removeChild(container);
+  }
+  if (document.getElementById("films-order-title")) {
+    let container = document.getElementById("films-order-title");
+    let delDiv = container.parentNode;
+    delDiv.removeChild(container);
+  }
+
+  obj.sort(function (a, b) {
+    return a.release_date - b.release_date;
+  });
+
+  let divIdFilms = document.getElementById("films");
+  let newUl = document.createElement("ul");
+  newUl.setAttribute("id", "films-order-date");
+
+  for (values of obj) {
+    let items = values.release_date + " ---->" + values.title;
+    let li = document.createElement("li");
+    li.appendChild(document.createTextNode(items));
+    newUl.appendChild(li);
+    divIdFilms.appendChild(newUl);
+  }
+}
+
+function sortFilmsEpisode() {
+  if (document.getElementById("films-order-episode_id")) {
+    return;
+  }
+
+  if (document.getElementById("films-order-date")) {
+    let container = document.getElementById("films-order-date");
+    let delDiv = container.parentNode;
+    delDiv.removeChild(container);
+  }
+  if (document.getElementById("films-order-director")) {
+    let container = document.getElementById("films-order-director");
+    let delDiv = container.parentNode;
+    delDiv.removeChild(container);
+  }
+  if (document.getElementById("films-order-title")) {
+    let container = document.getElementById("films-order-title");
+    let delDiv = container.parentNode;
+    delDiv.removeChild(container);
+  }
+
+  obj.sort(function (a, b) {
+    return a.episode_id - b.episode_id;
+  });
+
+  let divIdFilms = document.getElementById("films");
+  let newUl = document.createElement("ul");
+  newUl.setAttribute("id", "films-order-episode_id");
+
+  for (values of obj) {
+    let items = values.episode_id + " ---->" + values.title;
+    let li = document.createElement("li");
+    li.appendChild(document.createTextNode(items));
+    newUl.appendChild(li);
+    divIdFilms.appendChild(newUl);
+  }
+}
+
+function sortFilmsDirector() {
+  if (document.getElementById("films-order-director")) {
+    return;
+  }
+
+  if (document.getElementById("films-order-date")) {
+    let container = document.getElementById("films-order-date");
+    let delDiv = container.parentNode;
+    delDiv.removeChild(container);
+  }
+  if (document.getElementById("films-order-episode_id")) {
+    let container = document.getElementById("films-order-episode_id");
+    let delDiv = container.parentNode;
+    delDiv.removeChild(container);
+  }
+  if (document.getElementById("films-order-title")) {
+    let container = document.getElementById("films-order-title");
+    let delDiv = container.parentNode;
+    delDiv.removeChild(container);
+  }
+
+  obj.sort(function (a, b) {
+    if (a.director == b.director) return 0;
+    if (a.director > b.director) return 1;
+    else return -1;
+  });
+
+  let divIdFilms = document.getElementById("films");
+  let newUl = document.createElement("ul");
+  newUl.setAttribute("id", "films-order-director");
+
+  for (values of obj) {
+    let items = values.director + " ---->" + values.title;
+    let li = document.createElement("li");
+    li.appendChild(document.createTextNode(items));
+    newUl.appendChild(li);
+    divIdFilms.appendChild(newUl);
   }
 }
