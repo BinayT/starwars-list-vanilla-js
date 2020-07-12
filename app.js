@@ -556,3 +556,24 @@ function sortStarshipsPassanger() {
     divIdFilms.appendChild(newUl);
   }
 }
+//////////////////////////////////////////////////Species//////////////////////////////////////////////////
+function sortSpecies() {
+  if (document.getElementById("species-order")) {
+    return;
+  }
+  obj.sort(function (a, b) {
+    return a.passengers - b.passengers;
+  });
+
+  let divIdFilms = document.getElementById("species");
+  let newUl = document.createElement("ul");
+  newUl.setAttribute("id", "species-order");
+
+  for (values of obj) {
+    let items = values.name;
+    let li = document.createElement("li");
+    li.appendChild(document.createTextNode(items));
+    newUl.appendChild(li);
+    divIdFilms.appendChild(newUl);
+  }
+}
