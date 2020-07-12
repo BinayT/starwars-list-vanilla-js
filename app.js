@@ -458,3 +458,101 @@ function sortVehiclesCreation() {
     divIdFilms.appendChild(newUl);
   }
 }
+
+//////////////////////////////////////////////////StarShips//////////////////////////////////////////////////
+function sortStarshipsName() {
+  if (document.getElementById("starships-order-name")) {
+    return;
+  }
+
+  if (document.getElementById("starships-order-cost")) {
+    let container = document.getElementById("starships-order-cost");
+    let delDiv = container.parentNode;
+    delDiv.removeChild(container);
+  }
+  if (document.getElementById("starships-order-passanger")) {
+    let container = document.getElementById("starships-order-passanger");
+    let delDiv = container.parentNode;
+    delDiv.removeChild(container);
+  }
+
+  obj.sort(sortPorNombre);
+
+  let divIdFilms = document.getElementById("starships");
+  let newUl = document.createElement("ul");
+  newUl.setAttribute("id", "starships-order-name");
+
+  for (values of obj) {
+    let items = values.name;
+    let li = document.createElement("li");
+    li.appendChild(document.createTextNode(items));
+    newUl.appendChild(li);
+    divIdFilms.appendChild(newUl);
+  }
+}
+function sortStarshipsCost() {
+  if (document.getElementById("starships-order-cost")) {
+    return;
+  }
+
+  if (document.getElementById("starships-order-name")) {
+    let container = document.getElementById("starships-order-name");
+    let delDiv = container.parentNode;
+    delDiv.removeChild(container);
+  }
+  if (document.getElementById("starships-order-passanger")) {
+    let container = document.getElementById("starships-order-passanger");
+    let delDiv = container.parentNode;
+    delDiv.removeChild(container);
+  }
+
+  obj.sort(function (a, b) {
+    return a.cost_in_credits - b.cost_in_credits;
+  });
+
+  let divIdFilms = document.getElementById("starships");
+  let newUl = document.createElement("ul");
+  newUl.setAttribute("id", "starships-order-cost");
+
+  for (values of obj) {
+    if (values.cost_in_credits === "unknown") return;
+    let items = values.name + " ---->" + values.cost_in_credits + " $";
+    let li = document.createElement("li");
+    li.appendChild(document.createTextNode(items));
+    newUl.appendChild(li);
+    divIdFilms.appendChild(newUl);
+  }
+}
+
+function sortStarshipsPassanger() {
+  if (document.getElementById("starships-order-passanger")) {
+    return;
+  }
+
+  if (document.getElementById("starships-order-name")) {
+    let container = document.getElementById("starships-order-name");
+    let delDiv = container.parentNode;
+    delDiv.removeChild(container);
+  }
+  if (document.getElementById("starships-order-cost")) {
+    let container = document.getElementById("starships-order-cost");
+    let delDiv = container.parentNode;
+    delDiv.removeChild(container);
+  }
+
+  obj.sort(function (a, b) {
+    return a.passengers - b.passengers;
+  });
+
+  let divIdFilms = document.getElementById("starships");
+  let newUl = document.createElement("ul");
+  newUl.setAttribute("id", "starships-order-passanger");
+
+  for (values of obj) {
+    let items = values.name + " ----> " + values.passengers;
+    let li = document.createElement("li");
+    li.appendChild(document.createTextNode(items));
+    newUl.appendChild(li);
+    divIdFilms.appendChild(newUl);
+  }
+}
